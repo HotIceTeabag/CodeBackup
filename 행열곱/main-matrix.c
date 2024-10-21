@@ -51,6 +51,14 @@ int main() {
         mat_mult(mat1, mat2, answer,row1, col, col2);
         break;
 
+    case 5:
+
+        break;
+
+    case 6:
+
+        break;
+
     default:
         break;
     }
