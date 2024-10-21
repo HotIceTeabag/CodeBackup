@@ -1,7 +1,11 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-typedef struct mat
+typedef struct mat {
+	int row;
+	int col;
+	int value;
+}maat;
 
 void printmat(int* mat, int row, int col);
 
