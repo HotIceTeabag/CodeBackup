@@ -78,9 +78,10 @@ int main() {
     }
     */
     double sum = 0;
+    answer = calloc(row1 * col1, sizeof(float));
     for (int i = 0; i < 10; i++) {
         start = clock();
-        mat_plus(mat1, mat2, answer, row1, col1, col2);
+        mat_plus(mat1, mat2, answer, row1, col1);
         end = clock();
         printf("소요 시간: %.20lf\n", (double)(end - start) / CLOCKS_PER_SEC);
         sum += (double)(end - start);
