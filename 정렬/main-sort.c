@@ -14,8 +14,6 @@ int main() {
 
     int* arr = calloc(leng, sizeof(int));
 
-    genarr(arr, leng);
-
     printf("1: 버블, 2 : 인설션, 3 : 셀렉션\nOrder : ");
     scanf_s("%d", &order);
 
@@ -23,21 +21,33 @@ int main() {
 
     switch (order) {
     case 1:
-        start = clock();
-        bubble(arr, leng);
-        end = clock();
+        for (int i = 0; i < 5; i++) {
+            genarr(arr, leng);
+            start = clock();
+            bubble(arr, leng);
+            end = clock();
+            printf("소요 시간: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
+        }
         break;
 
     case 2:
-        start = clock();
-        insertion(arr, leng);
-        end = clock();
+        for (int i = 0; i < 5; i++) {
+            genarr(arr, leng);
+            start = clock();
+            insertion(arr, leng);
+            end = clock();
+            printf("소요 시간: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
+        }
         break;
 
     case 3:
-        start = clock();
-        selection(arr, leng);
-        end = clock();
+        for (int i = 0; i < 5; i++) {
+            genarr(arr, leng);
+            start = clock();
+            selection(arr, leng);
+            end = clock();
+            printf("소요 시간: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
+        }
         break;
 
     default:
