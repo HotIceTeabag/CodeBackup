@@ -56,7 +56,7 @@ int main() {
 
     printf("소요 시간: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
-    printarr(arr, leng);
+    //printarr(arr, leng);
 
     free(arr);
     return 0;
