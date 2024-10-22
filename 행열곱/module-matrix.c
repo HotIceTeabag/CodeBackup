@@ -86,3 +86,13 @@ void mat_mult(int* mat1, int* mat2, float* answer, int row, int col, int col2) {
 		}
 	}
 }
+
+void mat_reverse(int* mat, float* answer, int row, int col, bool zero) {
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			*(answer + j * row + i) = *(mat + i * col + j);
+		}
+	}
+}
+
+//void zero_mat_reverse(int[][3]; int number; float* answer, int col, int row) {

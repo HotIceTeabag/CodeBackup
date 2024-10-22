@@ -43,8 +43,7 @@ void selection(int* arr, int leng) {
 }
 
 void insertion(int* arr, int leng) {
-	int mov, num;
-	int val;
+	int num, val;
 	for (int i = 1; i < leng; i++) {
 		val = arr[i];
 		num = i;
@@ -52,7 +51,6 @@ void insertion(int* arr, int leng) {
 			arr[num] = arr[num - 1];
 			num--;
 		}
-
 		arr[num] = val;
 	}
 }

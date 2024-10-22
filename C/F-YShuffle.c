@@ -55,14 +55,21 @@ void deal(const Card* const deck) {
 }
 
 void shuffle(Card* const deck) {
-	int ranNum;
+	int j;
 	Card new_deck[CARDS];
-	for (size_t i = 0; i <= CARDS-2; ++i) {
-		ranNum = rand() % CARDS;
+	for (i = 0; i < CARDS - 1; i++) {
+		j = rand() % CARDS;
 		Card temp = deck[i];
-		deck[i] = deck[ranNum];
-		deck[ranNum] = temp;
+		deck[i] = deck[j];
+		deck[j] = temp;
 	}
+}
+
+for (size_t i = 0; i <= CARDS - 2; ++i) {
+	ranNum = rand() % CARDS;
+	Card temp = deck[i];
+	deck[i] = deck[ranNum];
+	deck[ranNum] = temp;
 }
 
 void shuffle_old(Card* const deck) {
