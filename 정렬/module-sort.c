@@ -7,7 +7,7 @@
 void printarr(int* arr, int leng) {
 	for (int i = 0; i < leng; i++) {
 		if (i % 20 == 0)printf("\n");
-		printf("%2d", *(arr + i));
+		printf("%8d", *(arr + i));
 	}
 }
 
