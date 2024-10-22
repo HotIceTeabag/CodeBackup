@@ -19,26 +19,31 @@ int main() {
     printf("1: 버블, 2 : 인설션, 3 : 셀렉션\nOrder : ");
     scanf_s("%d", &order);
 
-    clock_t start = clock();
+    clock_t start, end;
 
     switch (order) {
     case 1:
+        start = clock();
         bubble(arr, leng);
+        end = clock();
         break;
 
     case 2:
+        start = clock();
         insertion(arr, leng);
+        end = clock();
         break;
 
     case 3:
+        start = clock();
         selection(arr, leng);
+        end = clock();
         break;
 
     default:
         break;
     }
 
-    clock_t end = clock();
     printf("소요 시간: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     printarr(arr, leng);
