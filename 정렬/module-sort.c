@@ -30,3 +30,29 @@ void bubble(int* arr, int leng) {
 		}
 	}
 }
+
+void selection(int* arr, int leng) {
+	int most_small;
+	for (int i = 0; i < leng - 1; i++) {
+		most_small = i;
+		for (int j = i+1; j < leng; j++) {
+			if (arr[j] < arr[most_small])most_small = j;
+		}
+		swap(arr + i, arr + most_small);
+	}
+}
+
+void insertion(int* arr, int leng) {
+	int mov, num;
+	int val;
+	for (int i = 1; i < leng; i++) {
+		val = arr[i];
+		num = i;
+		while (num > 0 && arr[num - 1] > val) {
+			arr[num] = arr[num - 1];
+			num--;
+		}
+
+		arr[num] = val;
+	}
+}

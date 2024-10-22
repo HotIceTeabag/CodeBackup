@@ -1,7 +1,6 @@
 #ifndef SORT_H
 #define SORT_H
 
-typedef struct 
 
 void printarr(int* arr, int leng);
 
@@ -11,5 +10,8 @@ void genarr(int* arr, int leng);
 
 void bubble(int* arr, int leng);
 
+void insertion(int* arr, int leng);
+
+void selection(int* arr, int leng);
 
 #endif

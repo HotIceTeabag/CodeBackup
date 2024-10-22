@@ -27,11 +27,11 @@ int main() {
         break;
 
     case 2:
-
+        insertion(arr, leng);
         break;
 
     case 3:
-
+        selection(arr, leng);
         break;
 
     default:
