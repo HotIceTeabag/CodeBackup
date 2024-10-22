@@ -78,7 +78,6 @@ int main() {
     }
     
     
-    printf("소요 시간: %.20lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     /*
     printf("mat1:\n");
@@ -110,6 +109,8 @@ int main() {
                 printf("row: %2d col: %2d val: %2d\n", arr[i][0], arr[i][1], arr[i][2]);
             }
     }
+
+    printf("소요 시간: %.20lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     free(mat1);
     free(mat2);

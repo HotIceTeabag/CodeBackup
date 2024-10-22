@@ -13,7 +13,7 @@ void printarr(int* arr, int leng) {
 
 void genarr(int* arr, int leng) {
 	for (int i = 0; i < leng; i++) {
-		*(arr + i) = rand() % 10;
+		*(arr + i) = rand() % 10000;
 	}
 }
 
