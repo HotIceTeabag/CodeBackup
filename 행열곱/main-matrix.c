@@ -69,7 +69,7 @@ int main() {
     case 6:
         answer = calloc(col1 * row1, sizeof(float));
         start = clock();
-        printf("always....");
+        mat_reverse(mat1, answer, row1, col1, zero);
         end = clock();
         break;
 
@@ -80,17 +80,23 @@ int main() {
     
     printf("소요 시간: %.20lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
-    
+    /*
     printf("mat1:\n");
     printmat(mat1, row1, col1);
     printf("\n");
 
-    printf("mat2:\n");
-    printmat(mat2, row2, col2);
-    printf("\n");
-    
-    printf("answer:\n");
-    printans(answer, row1, col2);
+    //printf("mat2:\n");
+    //printmat(mat2, row2, col2);
+    //printf("\n");
+    if (order == 6) {
+        printf("answer:\n");
+        printans(answer, col1, row1);
+    }
+    else {
+        printf("answer:\n");
+        printans(answer, row1, col2);
+    }
+    */
     
     if (order == 5 && zero){
             answer = calloc(row1 * col1, sizeof(float));

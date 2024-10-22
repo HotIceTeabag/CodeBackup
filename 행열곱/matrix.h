@@ -21,5 +21,6 @@ void mat_plus(int* mat1, int* mat2, float* answer, int row, int col);
 void mat_minus(int* mat1, int* mat2, float* answer, int row, int col);
 void mat_divide(int* mat1, int* mat2, float* answer, int row, int col);
 void mat_mult(int* mat1, int* mat2, float* answer, int row, int col, int col2);
+void mat_reverse(int* mat, float* answer, int row, int col, bool zero);
 
 #endif
