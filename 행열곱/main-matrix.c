@@ -34,7 +34,7 @@ int main() {
 
     clock_t start;
     clock_t end;
-    switch (order) {
+    /*switch (order) {
     case 1:
         answer = calloc(row1 * col1, sizeof(float));
         start = clock();
@@ -76,8 +76,19 @@ int main() {
     default:
         break;
     }
+    */
+    double sum = 0;
+    for (int i = 0; i < 10; i++) {
+        start = clock();
+        mat_plus(mat1, mat2, answer, row1, col1, col2);
+        end = clock();
+        printf("소요 시간: %.20lf\n", (double)(end - start) / CLOCKS_PER_SEC);
+        sum += (double)(end - start);
+    }
 
-    printf("소요 시간: %.20lf\n", (double)(end - start) / CLOCKS_PER_SEC);
+    
+
+    //printf("소요 시간: %.20lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     /*
     printf("mat1:\n");
