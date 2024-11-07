@@ -4,12 +4,6 @@
 #include <stdbool.h>
 #include "matrix.h"
 
-
-/*
-난수를 0~99 범위에서 생성하여 확률을 설정
-int randomValue = rand() % 100;
-*/
-
 int main() {
     srand(time(0));
     int row1, col1, row2, col2, order;
@@ -64,6 +58,7 @@ int main() {
         break;
 
     case 5:
+        free(mat2);
         break;
 
     case 6:
@@ -76,44 +71,29 @@ int main() {
     default:
         break;
     }
-    
-    
 
-    /*
-    printf("mat1:\n");
-    printmat(mat1, row1, col1);
-    printf("\n");
-
-    //printf("mat2:\n");
-    //printmat(mat2, row2, col2);
-    //printf("\n");
-    if (order == 6) {
-        printf("answer:\n");
-        printans(answer, col1, row1);
-    }
-    else {
-        printf("answer:\n");
-        printans(answer, row1, col2);
-    }
-    */
     
     if (order == 5 && zero){
-            answer = calloc(row1 * col1, sizeof(float));
-            int arr[search(mat1, row1, col1) + 1][3];
+            answer = calloc(1, sizeof(float));
+
+            int ser = search(mat1, row1, col1);
+            int** arr = (int**)malloc((ser + 1) * sizeof(int*));
+            for (int i = 0; i < ser + 1; i++) arr[i] = (int*)malloc(3 * sizeof(int));
 
             start = clock();
-            aa(arr, search(mat1, row1, col1) + 1, mat1, row1, col1);
+            aa(arr, search(mat1, row1, col1), mat1, row1, col1);
             end = clock();
-            printf("rows: %2d cols: %2d cont: %2d\n", arr[0][0], arr[0][1], arr[0][2]);
-            for (int i = 1; i <= search(mat1, row1, col1); i++) {
+            
+            printf("rows: %2d cols: %2d cont: %2d\n", arr[0][0], arr[0][1], arr[0][2]);/*
+            for (int i = 1; i <= ser; i++) {
                 printf("row: %2d col: %2d val: %2d\n", arr[i][0], arr[i][1], arr[i][2]);
-            }
+            }*/
+            free(arr);
     }
-
     printf("소요 시간: %.20lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     free(mat1);
-    free(mat2);
+    if(order != 5)free(mat2);
     free(answer);
 	return 0;
 }

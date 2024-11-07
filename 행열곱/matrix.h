@@ -11,7 +11,7 @@ void printmat(int* mat, int row, int col);
 void printans(float* mat, int row, int col);
 
 int search(int* arr, int row, int col);
-void aa(int arr[][3], int number/*0이 아닌 값을 갯수 + 1*/, int* mat, int row, int col);
+void aa(int* arr[3], int number/*0이 아닌 값을 갯수 + 1*/, int* mat, int row, int col);
 
 void trans(maat* matarr, int number);
 

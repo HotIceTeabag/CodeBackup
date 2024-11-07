@@ -28,10 +28,10 @@ int search(int* arr, int row, int col) {
 	return count;
 }
 
-void aa(int arr[][3], int number/*0이 아닌 값을 갯수 + 1*/, int* mat, int row, int col) {
+void aa(int* arr[], int number/*0이 아닌 값을 갯수 + 1*/, int* mat, int row, int col) {
 	arr[0][0] = row; // 총 행의 수
 	arr[0][1] = col; // 총 열의 수
-	arr[0][2] = number-1;
+	arr[0][2] = number;
 
 	int index = 1;
 	for (int i = 0; i < row; i++) {
@@ -42,7 +42,7 @@ void aa(int arr[][3], int number/*0이 아닌 값을 갯수 + 1*/, int* mat, int row, i
 				arr[index][2] = *(mat + i * col + j);
 
 				index++;
-				if (index == number)return;
+				if (index == number + 1)return;
 			}
 		}
 	}
@@ -94,5 +94,3 @@ void mat_reverse(int* mat, float* answer, int row, int col, bool zero) {
 		}
 	}
 }
-
-//void zero_mat_reverse(int[][3]; int number; float* answer, int col, int row) {
