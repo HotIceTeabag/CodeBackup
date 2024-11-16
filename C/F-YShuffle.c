@@ -1,12 +1,12 @@
-/*	**Algorithm Discribtion**
+ï»¿/*	**Algorithm Discribtion**
 Fisher-Yates Shuffling Algorithm:
-	ÀÏ¹ÝÀûÀ¸·Î ¿øº» ¹è¿­°ú, ºó ¹è¿­ ÇÏ³ª¸¦ ´õ ÀÌ¿ëÇØ
-	ºó ¹è¿­¿¡ ¼¯ÀÎ °á°ú¸¦ ÀúÀåÇÏ´Â µÎ ¹è¿­À» ¾²´Â ¹æ½ÄÀÌ ¸¹´Ù.
-	ÇÏÁö¸¸, ÇÑ °¡Áö ¹è¿­À» »ç¿ëÇÏ´Â ¹æ¹ýµµ ÀÖ´Ù.
-	i°ªÀ» Ä«µå µ¦ ¹è¿­ÀÇ ³¡ºÎÅÍ ½ÃÀÛÇÏ¿© i°ªÀÌ 1ÀÌ µÉ ¶§±îÁö ¹Ýº¹ÇÑ´Ù.
-	0¿¡¼­ i±îÁöÀÇ °ªÀ» °®´Â ranNumÀ» randomÇÔ¼ö¸¦ ÀÌ¿ëÇØ i±îÁöÀÇ °ªÀ» »ý¼ºÇÑ´Ù.
-	µû¶ó¼­ i°¡ ³»·Á°¨¿¡ µû¶ó i¹øÂ° ÀÎµ¦½º¿¡ ÀÖ´Â °ªÀº ±× ÀÌÀü±îÁöÀÇ °ªµé Áß ÇÏ³ª¿Í
-	±³Ã¼µÇ¾î °á°úÀûÀ¸·Î ¸ðµç ¿ø¼Ò°¡ ¼¯ÀÌ°ÔµÈ´Ù.
+	ì¼ë°˜ì ìœ¼ë¡œ ì›ë³¸ ë°°ì—´ê³¼, ë¹ˆ ë°°ì—´ í•˜ë‚˜ë¥¼ ë” ì´ìš©í•´
+	ë¹ˆ ë°°ì—´ì— ì„žì¸ ê²°ê³¼ë¥¼ ì €ìž¥í•˜ëŠ” ë‘ ë°°ì—´ì„ ì“°ëŠ” ë°©ì‹ì´ ë§Žë‹¤.
+	í•˜ì§€ë§Œ, í•œ ê°€ì§€ ë°°ì—´ì„ ì‚¬ìš©í•˜ëŠ” ë°©ë²•ë„ ìžˆë‹¤.
+	iê°’ì„ ì¹´ë“œ ë± ë°°ì—´ì˜ ëë¶€í„° ì‹œìž‘í•˜ì—¬ iê°’ì´ 1ì´ ë  ë•Œê¹Œì§€ ë°˜ë³µí•œë‹¤.
+	0ì—ì„œ iê¹Œì§€ì˜ ê°’ì„ ê°–ëŠ” ranNumì„ randomí•¨ìˆ˜ë¥¼ ì´ìš©í•´ iê¹Œì§€ì˜ ê°’ì„ ìƒì„±í•œë‹¤.
+	ë”°ë¼ì„œ iê°€ ë‚´ë ¤ê°ì— ë”°ë¼ ië²ˆì§¸ ì¸ë±ìŠ¤ì— ìžˆëŠ” ê°’ì€ ê·¸ ì´ì „ê¹Œì§€ì˜ ê°’ë“¤ ì¤‘ í•˜ë‚˜ì™€
+	êµì²´ë˜ì–´ ê²°ê³¼ì ìœ¼ë¡œ ëª¨ë“  ì›ì†Œê°€ ì„žì´ê²Œëœë‹¤.
 */
 #include <stdio.h>
 #include <stdlib.h>

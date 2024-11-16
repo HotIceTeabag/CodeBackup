@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
@@ -28,9 +28,9 @@ int search(int* arr, int row, int col) {
 	return count;
 }
 
-void aa(int* arr[], int number/*0ÀÌ ¾Æ´Ñ °ªÀ» °¹¼ö + 1*/, int* mat, int row, int col) {
-	arr[0][0] = row; // ÃÑ ÇàÀÇ ¼ö
-	arr[0][1] = col; // ÃÑ ¿­ÀÇ ¼ö
+void aa(int* arr[], int number/*0ì´ ì•„ë‹Œ ê°’ì„ ê°¯ìˆ˜ + 1*/, int* mat, int row, int col) {
+	arr[0][0] = row; // ì´ í–‰ì˜ ìˆ˜
+	arr[0][1] = col; // ì´ ì—´ì˜ ìˆ˜
 	arr[0][2] = number;
 
 	int index = 1;

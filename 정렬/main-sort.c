@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
@@ -9,12 +9,12 @@ int main() {
     int leng, order;
     bool zero = false;
 
-    printf("¹è¿­ÀÇ ±æÀÌ\nOrder: ");
+    printf("ë°°ì—´ì˜ ê¸¸ì´\nOrder: ");
     scanf_s("%d", &leng);
 
     int* arr = calloc(leng, sizeof(int));
 
-    printf("1: ¹öºí, 2 : ÀÎ¼³¼Ç, 3 : ¼¿·º¼Ç\nOrder : ");
+    printf("1: ë²„ë¸”, 2 : ì¸ì„¤ì…˜, 3 : ì…€ë ‰ì…˜\nOrder : ");
     scanf_s("%d", &order);
 
     clock_t start, end;
@@ -26,7 +26,7 @@ int main() {
             start = clock();
             bubble(arr, leng);
             end = clock();
-            printf("¼Ò¿ä ½Ã°£: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
+            printf("ì†Œìš” ì‹œê°„: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
         }
         break;
 
@@ -36,7 +36,7 @@ int main() {
             start = clock();
             insertion(arr, leng);
             end = clock();
-            printf("¼Ò¿ä ½Ã°£: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
+            printf("ì†Œìš” ì‹œê°„: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
         }
         break;
 
@@ -46,7 +46,7 @@ int main() {
             start = clock();
             selection(arr, leng);
             end = clock();
-            printf("¼Ò¿ä ½Ã°£: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
+            printf("ì†Œìš” ì‹œê°„: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
         }
         break;
 
@@ -54,7 +54,7 @@ int main() {
         break;
     }
 
-    printf("¼Ò¿ä ½Ã°£: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
+    printf("ì†Œìš” ì‹œê°„: %lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     //printarr(arr, leng);
 

@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
@@ -9,21 +9,21 @@ int main() {
     int row1, col1, row2, col2, order;
     bool zero = false;
 
-    printf("Çà, ¿­, Çà2, ¿­2\nOrder: ");
+    printf("í–‰, ì—´, í–‰2, ì—´2\nOrder: ");
     scanf_s("%d %d %d %d", &row1, &col1, &row2, &col2);
     
     int* mat1 = calloc(row1 * col1, sizeof(int)),
         * mat2 = calloc(row2 * col2, sizeof(int));
     float* answer;
 
-    printf("1: Èñ¼ÒÇà·Ä, 0: ÀÏ¹İÇà·Ä\nOrder: ");
+    printf("1: í¬ì†Œí–‰ë ¬, 0: ì¼ë°˜í–‰ë ¬\nOrder: ");
     scanf_s("%d", &order);
     zero = (order != 0);
     
     genmat(mat1, row1, col1, zero);
     genmat(mat2, row2, col2, zero);
 
-    printf("1: µ¡¼À, 2 : »¬¼À, 3 : ³ª´°¼À, 4 : °ö¼À, 5 : Èñ¼ÒÇà·Ä, 6 : ÀüÄ¡Çà·Ä\nOrder : ");
+    printf("1: ë§ì…ˆ, 2 : ëº„ì…ˆ, 3 : ë‚˜ëˆ—ì…ˆ, 4 : ê³±ì…ˆ, 5 : í¬ì†Œí–‰ë ¬, 6 : ì „ì¹˜í–‰ë ¬\nOrder : ");
     scanf_s("%d", &order);
 
     clock_t start;
@@ -90,7 +90,7 @@ int main() {
             }*/
             free(arr);
     }
-    printf("¼Ò¿ä ½Ã°£: %.20lf\n", (double)(end - start) / CLOCKS_PER_SEC);
+    printf("ì†Œìš” ì‹œê°„: %.20lf\n", (double)(end - start) / CLOCKS_PER_SEC);
 
     free(mat1);
     if(order != 5)free(mat2);
