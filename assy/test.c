@@ -1,4 +1,6 @@
-﻿#include <stdio.h>
+﻿//
+
+#include <stdio.h>
 
 int a = 2, b = 3;
 int c, d, e;

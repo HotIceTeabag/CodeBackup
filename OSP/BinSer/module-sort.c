@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "sort.h"
 
 void printarr(int* arr, int leng) {
 	for (int i = 0; i < leng; i++) {

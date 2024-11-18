@@ -104,3 +104,13 @@ void free_list(polyList list) {
 		killer = next;
 	}
 }
+
+int count_list(polyList p) {
+	nodeP now = p;
+	int index = 0;
+	while (now != NULL) {
+		index++;
+		now = now->next;
+	}
+	return index;
+}

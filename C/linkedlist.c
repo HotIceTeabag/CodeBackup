@@ -5,17 +5,17 @@
 typedef struct Node {
 	char data;
 	struct Node* next;
-}Node;
+}listNode;
 
-typedef Node* list;
-typedef Node* Nodeptr;
+typedef listNode* list;
+typedef listNode* LNodeptr;
 
-void insert(Nodeptr* sPtr, char value);
+void insert(LNodeptr* sPtr, char value);
 void instructions();
 
 
 int main() {
-	Nodeptr start = NULL;
+	LNodeptr start = NULL;
 	char item = '\0';
 
 	instructions();
@@ -50,15 +50,15 @@ void instructions(void) {
 		"3 to end.");
 }
 
-void insert(Nodeptr *sPtr, char value) {
-	Nodeptr newP = malloc(sizeof(Node));
+void insert(LNodeptr *sPtr, char value) {
+	LNodeptr newP = malloc(sizeof(listNode));
 
 	if (newP != NULL) {
 		newP->data = value;
 		newP->next = NULL;
 
-		Nodeptr prevP = NULL;
-		Nodeptr currP = *sPtr;
+		LNodeptr prevP = NULL;
+		LNodeptr currP = *sPtr;
 
 		while (currP != NULL && value > currP->data) {
 			prevP = currP;
