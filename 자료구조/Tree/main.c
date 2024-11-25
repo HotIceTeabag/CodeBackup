@@ -79,7 +79,7 @@ void huffmancoding() {
 
 	pair* huffmanTable = makeTable(theTree, count);
 
-	printf("Huffman Codes:\n");
+	printf("문자별 코드:\n");
 	for (int i = 0; i < count; i++) {
 		printf("'%c': %s\n", huffmanTable[i].chr, huffmanTable[i].code);
 	}
