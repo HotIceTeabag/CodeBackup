@@ -1,7 +1,8 @@
 #ifndef TREE_H
 #define TREE_H
 
-typedef struct Bintree {
+
+typedef struct tree {
 	int num;
 	char chr;
 	struct tree* left;
@@ -13,8 +14,7 @@ typedef struct {
 	char code[256];
 } pair;
 
-typedef struct Bintree* treeP;
-typedef treeP Tree;
+typedef tree* treeP;
 
 void huffmancoding();
 
@@ -27,6 +27,8 @@ treeP bind(treeP lft, treeP rht);
 int ascendingTree(const void* a, const void* b);
 pair* makeTable(treeP theTree, int count);
 
-treeP huffmanE(treeP* treearr, int size);
+treeP huffman(treeP* treearr, int size);
+char* huffmanEncoding(char* str, pair* table, int charcount);
+char* huffmanDecoding(char* str, treeP theTree, int len);
 
 #endif

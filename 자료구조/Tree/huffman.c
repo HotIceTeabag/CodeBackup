@@ -1,18 +1,19 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "tree.h"
 
 #define SIZE 20
 
-char* inputstr() {			//ÇÔ¼ö ½ÃÀÛ
-	int index = 0, arr_size = 20;	//index(¹®ÀÚ¿­ À§Ä¡ È®ÀÎ¿ë), arr_size(¹®ÀÚ¿­ ±æÀÌ, ºÎÁ·ÇÏ¸é ÃÊ±â°ª 20¿¡¼­ 20¸¸Å­ °è¼Ó ´Ã¾î³².)
+char* inputstr() {			//í•¨ìˆ˜ ì‹œì‘
+	int index = 0, arr_size = 20;	//index(ë¬¸ìì—´ ìœ„ì¹˜ í™•ì¸ìš©), arr_size(ë¬¸ìì—´ ê¸¸ì´, ë¶€ì¡±í•˜ë©´ ì´ˆê¸°ê°’ 20ì—ì„œ 20ë§Œí¼ ê³„ì† ëŠ˜ì–´ë‚¨.)
 
-	char* strnow = (char*)malloc(sizeof(char) * arr_size);	//¹®ÀÚ¿­ ÃÊ±â¼±¾ğ
+	char* strnow = (char*)malloc(sizeof(char) * arr_size);	//ë¬¸ìì—´ ì´ˆê¸°ì„ ì–¸
 	char a;
 
-	while ((a = getchar()) != EOF) {		//¹ŞÀº ¹®ÀÚ°¡ EOF°¡ ¾Æ´Ï¸é À¯Áö
-		strnow[index] = a;				//¹®ÀÚ¿­ÀÇ index¹øÂ° ¿ø¼Ò¿¡ ÀÔ·Â¹ŞÀº a ÇÒ´ç
+	while ((a = getchar()) != EOF) {		//ë°›ì€ ë¬¸ìê°€ EOFê°€ ì•„ë‹ˆë©´ ìœ ì§€
+		strnow[index] = a;				//ë¬¸ìì—´ì˜ indexë²ˆì§¸ ì›ì†Œì— ì…ë ¥ë°›ì€ a í• ë‹¹
 		index++;
 
 		if (index >= arr_size) {
@@ -34,13 +35,13 @@ char* inputstr() {			//ÇÔ¼ö ½ÃÀÛ
 	return strnow;
 }
 
-treeP bind(treeP lft, treeP rht) {
+treeP bind(tree* Left, tree* Right) {
     treeP newleaf = (treeP)malloc(sizeof(tree));
     
     newleaf->chr = '\0';
-    newleaf->num = lft->num + rht->num;
-    newleaf->left = lft;
-    newleaf->right = rht;
+    newleaf->num = Left->num + Right->num;
+    newleaf->left = Left;
+    newleaf->right = Right;
 
     return newleaf;
 }
@@ -51,19 +52,19 @@ int ascendingTree(const void* a, const void* b) {
 	return A->num - B->num;
 }
 
-treeP huffmanE(treeP* treearr, int size) {
+treeP huffman(treeP* treearr, int size) {
 	int leng = size;
 
 	while (leng > 1) {
-		treeP temp = bind(treearr[0], treearr[1]);		//°¡Àå ÀÛÀº ³ëµåµé µÑÀÌ ¹­±â
+		treeP temp = bind(treearr[0], treearr[1]);		//ê°€ì¥ ì‘ì€ ë…¸ë“œë“¤ ë‘˜ì´ ë¬¶ê¸°
 
-		for (int i = 2; i < leng; i++) {					//2°³¾¿ ¹è¿­ ¿ä¼Ò ¾Õ´ç±è
+		for (int i = 2; i < leng; i++) {					//2ê°œì”© ë°°ì—´ ìš”ì†Œ ì•ë‹¹ê¹€
 			treearr[i - 2] = treearr[i];
 		}
-		leng -= 1;											//¿ø¼Ò °³¼ö ÇÏ³ª ÁÙÀÌ°í ¸Ç µÚ¿¡ ¹­¾î³½  ³ëµå Ãß°¡
+		leng -= 1;											//ì›ì†Œ ê°œìˆ˜ í•˜ë‚˜ ì¤„ì´ê³  ë§¨ ë’¤ì— ë¬¶ì–´ë‚¸  ë…¸ë“œ ì¶”ê°€
 		treearr[leng - 1] = temp;
 
-		qsort(treearr, leng, sizeof(treeP), ascendingTree);	//ÀÛÀº°Í³¢¸® ¹­°í, ¹è¿­¿¡ Ãß°¡ÇÏ°í, ±æÀÌ ÁÙÀÌ±â ¹İº¹
+		qsort(treearr, leng, sizeof(treeP), ascendingTree);	//ì‘ì€ê²ƒë¼ë¦¬ ë¬¶ê³ , ë°°ì—´ì— ì¶”ê°€í•˜ê³ , ê¸¸ì´ ì¤„ì´ê¸° ë°˜ë³µ
 	}
 
 	return treearr[0];
@@ -72,32 +73,78 @@ treeP huffmanE(treeP* treearr, int size) {
 void fillTable(treeP root, pair* table, char* code, int depth, int* codeIndex) {
 	if (root == NULL) return;
 
-	// ¸®ÇÁ ³ëµå¿¡ µµ´ŞÇÑ °æ¿ì
+	// ë¦¬í”„ ë…¸ë“œì— ë„ë‹¬í•œ ê²½ìš°
 	if (root->left == NULL && root->right == NULL) {
-		code[depth] = '\0';               // ¹®ÀÚ¿­ Á¾·á
-		table[*codeIndex].chr = root->chr; // ¹®ÀÚ ÀúÀå
-		strcpy(table[*codeIndex].code, code); // ÄÚµå ÀúÀå
+		code[depth] = '\0';					//ë¬¸ìì—´ ëë‚´ê¸°
+		table[*codeIndex].chr = root->chr;	// ë¬¸ì ì €ì¥
+		strcpy(table[*codeIndex].code, code); // ì½”ë“œ ì €ì¥
 		(*codeIndex)++;
 		return;
 	}
-
+	//ì™¼ìª½ ë¦¬í”„ì—ëŠ” 0
 	code[depth] = '0';
 	fillTable(root->left, table, code, depth + 1, codeIndex);
 
-	// ¿À¸¥ÂÊ ÀÚ½Ä: 1 Ãß°¡
+	//ì˜¤ë¥¸ìª½ ë¦¬í”„ì—ëŠ” 1
 	code[depth] = '1';
 	fillTable(root->right, table, code, depth + 1, codeIndex);
 }
 
 pair* makeTable(treeP theTree, int count) {
 	int depth = dive(theTree);
-	printf("±íÀÌ´Â %d...", depth);
 	pair* table = (pair*)malloc(sizeof(pair) * count);
 
-	char code[depth + 1]; // ÇöÀç ÄÚµå ÀúÀå
-	int codeIndex = 0;    // Å×ÀÌºí ÀÎµ¦½º ÃßÀû
+	char code[depth + 1]; // í˜„ì¬ ì½”ë“œ ì €ì¥
+	int codeIndex = 0;    // í…Œì´ë¸” ì¸ë±ìŠ¤ ì¶”ì 
 
 	fillTable(theTree, table, code, 0, &codeIndex);
 
 	return table;
+}
+
+char* huffmanEncoding(char* str, pair* table, int charcount) {
+	int len = strlen(str), code_max = 0;
+
+	for (int i = 0; i < charcount; i++)if (code_max < strlen(table[i].code))code_max = strlen(table[i].code);	//ê°€ì¥ ê¸¸ì´ê°€ ê¸´ í—ˆí”„ë§Œ ì½”ë“œ ì°¾ê¸°
+
+	char* encoding = (char*)malloc(sizeof(char) * (len * code_max + 1));	//í—ˆí”„ë§Œ ì½”ë“œë¥¼ ì €ì¥í•  ë°°ì—´
+
+	encoding[0] = '\0';
+	for (int i = 0; i < len; i++) {
+		for (int j = 0; j < charcount; j++) {
+			if (str[i] == table[j].chr) {					//í…Œì´ë¸”ì—ì„œ ë¬¸ìì— ë§ëŠ” ì½”ë“œë¥¼ ì°¾ìŒ
+				strcat(encoding, table[j].code);
+				break;
+			}
+		}
+	}
+
+	return encoding;
+}
+
+
+char* huffmanDecoding(char* str, treeP theTree, int len) {
+
+	int codelen = strlen(str), index = 0;
+	char* decoding = (char*)malloc(sizeof(char) * (len + 1));
+	treeP diver = theTree;
+
+	for (int i = 0; i < codelen; i++) {
+
+		if (str[i] == '1') {
+			diver = diver->right;
+		}
+		else if (str[i] == '0') {
+			diver = diver->left;
+		}
+
+		if (diver->left == NULL && diver->right == NULL) {
+			decoding[index] = diver->chr;
+			diver = theTree;
+			index++;
+		}
+	}
+	decoding[len] = '\0';
+
+	return decoding;
 }

@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -7,14 +7,14 @@
 
 
 int ascending(const void* a, const void* b) {
-	return (*(char*)a - *(char*)b);		//¿À¸§Â÷¼ø Á¤·Ä
+	return (*(char*)a - *(char*)b);		//ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 }
 
 
 int main() {
 	int order;
 
-	printf("1 ÀÔ·Â½Ã ´ÙÇ×½Ä, 2 ÀÔ·Â½Ã ÇãÇÁ¸¸ ÄÚµù");
+	printf("1 ì…ë ¥ì‹œ ë‹¤í•­ì‹, 2 ì…ë ¥ì‹œ í—ˆí”„ë§Œ ì½”ë”©\nì„ íƒ: ");
 	scanf("%d", &order);
 
 	
@@ -32,11 +32,11 @@ int main() {
 void huffmancoding() {
 	char* str;
 	int leng, index = 0, count = 1;
-	printf("¹®ÀÚ¿­ ÀÔ·Â: ");
+	printf("ë¬¸ìì—´ ì…ë ¥: ");
 	getchar();
-	str = inputstr();					//ÀÔ·ÂÀ» Á¾·áÇÒ¶© ¿£ÅÍ·Î ÁÙ¹Ù²Ş ÀÌÈÄ EOF·Î Á¾·áÇÒ °Í!
+	str = inputstr();					//ì…ë ¥ì„ ì¢…ë£Œí• ë• ì—”í„°ë¡œ ì¤„ë°”ê¿ˆ ì´í›„ EOFë¡œ ì¢…ë£Œí•  ê²ƒ!
 
-	printf("\nÀÔ·ÂµÈ ³»¿ë: %s\n", str);
+	printf("\nì…ë ¥ëœ ë‚´ìš©: %s\n", str);
 
 	char* copy = (char*)malloc(strlen(str) + 1);
 	strcpy(copy, str);
@@ -68,26 +68,37 @@ void huffmancoding() {
 		else treearr[index]->num++;
 	}
 
-	printf("Á¤·Ä: %s\n", copy);
+	printf("ì •ë ¬: %s\n", copy);
 	qsort(treearr, count, sizeof(treeP), ascendingTree);
 
 	for (int i = 0; i < count; i++) {
-		printf("¹®ÀÚ :%c, ºóµµ :%d\n", treearr[i]->chr, treearr[i]->num);
+		printf("ë¬¸ì :%c, ë¹ˆë„ :%d\n", treearr[i]->chr, treearr[i]->num);
 	}
 
-	treeP theTree = huffmanE(treearr, count);
+	treeP theTree = huffman(treearr, count);
 
 	pair* huffmanTable = makeTable(theTree, count);
 
-	printf("¹®ÀÚº° ÄÚµå:\n");
+	printf("ë¬¸ìë³„ ì½”ë“œ:\n");
 	for (int i = 0; i < count; i++) {
 		printf("'%c': %s\n", huffmanTable[i].chr, huffmanTable[i].code);
 	}
 
-	for (int i = 0; i < count; i++) {				//ÇÒ´ç ÇØÁ¦
+	char* encoded = huffmanEncoding(str, huffmanTable, count);
+
+	printf("\n%s\n", encoded);
+
+	char* decoded = huffmanDecoding(encoded, theTree, leng);
+
+	printf("\n%s\n", decoded);
+
+	for (int i = 0; i < count; i++) {				//í• ë‹¹ í•´ì œ
 		free(treearr[i]);
 	}
+
 	free(str);
 	free(copy);
 	free(treearr);
+
+	return;
 }
